@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frio Granda</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1;
+            color: #333;
+            padding-top: 80px; /* Ajusta este valor para que el contenido no se esconda detrás de la navbar fija */
+      
+        }
+
+        /* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0033A0;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+/* Adjust logo image size if necessary */
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    color: #fff;
+    margin-left: auto; /* Pushes the contact info to the right */
+    padding: 0 10px; /* Adds horizontal padding */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Optional: Ensures icons and text are aligned */
+.contact-info i {
+    margin-right: 8px;
+}
+
+.contact-info span {
+    display: block; /* Ensures the text takes up space */
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    color: #fff;
+}
+
+.contact-info i {
+    margin-right: 8px;
+}
+
+.contact-info span {
+    white-space: nowrap; /* Prevents the text from wrapping */
+}
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-info {
+            font-size: 1.125rem;
+            color: #fff;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 64px 24px;
+            color: #0033A0;
+            position: relative;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #ffcc00, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background 0.5s ease;
+        }
+
+        .title:hover {
+            background: linear-gradient(to right, #ff6600, #ffcc00);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 16px;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-top: 24px;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            max-width: 900px;
+            margin: 24px auto;
+            color: #555;
+        }
+
+        .mascota, .garantia {
+            position: absolute;
+            transition: transform 0.3s ease;
+        }
+
+        .mascota {
+            bottom: 0;
+            right: 20px;
+            max-width: 300px;
+        }
+
+        .garantia {
+            bottom: 0;
+            left: 20px;
+            max-width: 150px;
+        }
+
+        .mascota:hover, .garantia:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .question {
+                font-size: 1.25rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .mascota {
+                width: 150px;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .garantia {
+                width: 100px;
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+
+        .serv, .marc, .option {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 16px;
+        }
+
+        .form-container {
+            background-color: #0033A0;
+            padding: 32px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 32px auto;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #0033A0;
+        }
+
+        .form-container button {
+            background-color: #ffcc00;
+            color: #0033A0;
+            border: 2px solid #0033A0;
+            border-radius: 4px;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 1.125rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #0033A0;
+            color: white;
+        }
+
+        .footer {
+            background-color: #0033A0;
+            color: #fff;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #d1d5db;
+        }
+
+        .services-brands-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 64px 24px;
+            background-color: #0033A0;
+            color: #fff;
+        }
+
+        .services-brands-section .left-col, .services-brands-section .right-col {
+            flex: 1;
+            padding: 16px;
+        }
+
+        .services-brands-section .left-col {
+            max-width: 50%;
+        }
+
+        .services-brands-section .right-col {
+            max-width: 50%;
+        }
+
+        .services-brands-section h1 {
+            font-size: 2rem;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .services-brands-section ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: #dbeafe;
+        }
+
+        .services-brands-section img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .services-brands-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .services-section {
+            padding: 64px 24px;
+            text-align: center;
+            background-color: #0033A0;
+            color: #fff;
+        }
+
+        .services-section h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 32px;
+        }
+
+        .services-section .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .services-section .service-item {
+            flex: 1 1 200px;
+            max-width: 250px;
+            padding: 16px;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            background-color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .services-section .service-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .services-section .service-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        footer {
+            background-color: #1E3A8A; /* Azul más oscuro */
+            padding: 16px;
+            border-top: 1px solid #1E3A8A;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+            color: #fff;
+            position: relative;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 100px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-right p {
+            margin: 4px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #d1d5db;
+        }
+        .fab {
+  color: #666; /* Color por defecto */
+}
+
+.fab.fa-tiktok {
+  color: rgb(1, 42, 62);
+}
+
+.fab.fa-facebook {
+  color: #3b5998;
+}
+
+.fab.fa-whatsapp {
+  color: #06ff61;
+}
+
+.fab.fa-instagram {
+  color: #f60f5c;
+}
+:root {
+  --tiktok-color: #069;
+  --facebook-color: #566ea1;
+  --whatsapp-color: #25d366;
+  --instagram-color: #e1306c;
+}
+
+.fab {
+  color: #bb0909; /* Color por defecto */
+}
+
+.fab.fa-tiktok {
+  color: var(--tiktok-color);
+}
+
+.fab.fa-facebook {
+  color: var(--facebook-color);
+}
+
+.fab.fa-whatsapp {
+  color: var(--whatsapp-color);
+}
+
+.fab.fa-instagram {
+  color: var(--instagram-color);
+}
+.fab {
+  font-size: 36px; /* Tamaño de los iconos */
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <span>Frio Granda</span>
+        </div>
+        <div class="contact-info">
+            <i class="fab fa-whatsapp"></i>
+            0996917695...
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="text-center">
+            <h1 class="title">Frio Granda</h1>
+            <p class="subtitle">Servicio técnico especializado en aire acondicionado, refrigeración y mucho más</p>
+            <img src="logo.png" alt="Mascota" class="mascota">
+            <img src="garantizado.jpg" alt="Garantía" class="garantia">
+        </div>
+        <div class="description">
+            <p>En Frio Granda, nos enorgullece ofrecer un servicio técnico confiable y profesional en el mantenimiento y reparación de equipos de refrigeración y aire acondicionado. Nuestro equipo altamente capacitado está listo para atender sus necesidades con rapidez y eficiencia.</p>
+        </div>
+    </div>
+
+    <div class="services-brands-section">
+        <div class="left-col">
+            <h1>Servicios</h1>
+            <ul>
+                <li>Mantenimiento de aire acondicionado</li>
+                <li>Reparación de refrigeradores</li>
+                <li>Instalación de sistemas de refrigeración</li>
+                <li>Servicio técnico especializado</li>
+            </ul>
+        </div>
+        <div class="right-col">
+            <h1>Marcas</h1>
+            <div>
+                <img src="nevera.jpg" alt="Marca 1">
+                <img src="nevera.jpg" alt="Marca 2">
+                <img src="nevera.jpg" alt="Marca 3">
+                <img src="nevera.jpg" alt="Marca 4">
+                <img src="nevera.jpg" alt="Marca 5">
+                <img src="nevera.jpg" alt="Marca 6">
+            </div>
+        </div>
+    </div>
+
+    <div class="services-section">
+        <h1>Servicios</h1>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="nevera.jpg" alt="Servicio 1">
+                <h2>Reparación de Aire Acondicionado</h2>
+                <p>Servicio rápido y eficiente para todos los tipos de sistemas de aire acondicionado.</p>
+            </div>
+            <div class="service-item">
+                <img src="nevera.jpg" alt="Servicio 2">
+                <h2>Mantenimiento Preventivo</h2>
+                <p>Chequeo y mantenimiento regular para garantizar el funcionamiento óptimo de sus equipos.</p>
+            </div>
+            <div class="service-item">
+                <img src="nevera.jpg" alt="Servicio 3">
+                <h2>Instalación de Sistemas de Refrigeración</h2>
+                <p>Instalación profesional de sistemas de refrigeración para su hogar o negocio.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Solicitar Servicio</h2>
+        <form action="/solicitar" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Descripción del problema:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="type">Tipo de reparación:</label>
+            <select id="type" name="type" required>
+                <option value="aire_acondicionado">Aire acondicionado</option>
+                <option value="refrigerador">Refrigerador</option>
+                <option value="lavadora">Lavadora</option>
+            </select>
+
+            <label for="brand">Marca:</label>
+            <select id="marca" name="marca" required>
+                <option value="samsung">Samsung</option>
+                <option value="lg">LG</option>
+                <option value="whirlpool">Whirlpool</option>
+                <option value="bosch">Bosch</option>
+                <option value="panasonic">Panasonic</option>
+                <option value="electrolux">Electrolux</option>
+            </select>
+
+            <label for="efficiency">Eficiencia:</label>
+            <select id="efficiency" name="efficiency" required>
+                <option value="alta">Alta</option>
+                <option value="baja">Baja</option>
+            </select>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="logo">
+                <img src="garan.png" alt="Logo">
+            </div>
+            
+            <div class="text-right">
+                 <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+           
+                <p>Técnico: Luis Martinez</p>
+                <p>Desarrolladores: Chalco &amp; Loayza</p>
+                <p>&copy; 2024 - Todos los derechos reservados</p>
+            </div>
+          
+        </div>
+    </footer>
+</body>
+</html>
